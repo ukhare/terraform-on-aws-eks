@@ -1,10 +1,14 @@
+# Get Default VPC id
+data "aws_vpc" "default" {
+  default = true
+} 
 # Get latest AMI ID for Amazon Linux2 OS
 data "aws_ami" "amzlinux2" {
   most_recent      = true
   owners           = ["amazon"]
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-gp2"]
+    values = ["al2023-ami-2023*"]
   }
   filter {
     name   = "root-device-type"
